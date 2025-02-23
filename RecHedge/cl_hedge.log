@@ -1,0 +1,12 @@
+2025-02-23 12:31:51,718 - INFO - The optimal decision is [25.0365112  25.33465532 24.49278315 24.87524065 25.16942578 24.96620634
+ 25.07313502 24.69544947 25.29076589 25.06582717] with the optimal value 24.79111093784601.
+2025-02-23 12:31:51,718 - INFO - The steady-state distribution given the optimal decision is [0.10217696 0.1098871  0.08015955 0.09686075 0.10592653 0.09996885
+ 0.10326411 0.08979985 0.10890573 0.10305055]
+2025-02-23 12:31:51,718 - INFO - In the objective, the inner product (expected value) is 25.020983948961216 and the regularizer is -0.22987301111520642
+2025-02-23 12:32:08,491 - INFO - The 0-th trial of the vanilla gradient-free algorithm is finished.
+2025-02-23 12:32:26,853 - INFO - The 1-th trial of the vanilla gradient-free algorithm is finished.
+2025-02-23 12:32:26,855 - INFO - The vanilla gradient-free algorithm is finished.
+2025-02-23 12:32:26,856 - INFO - The decision vector is [25.43730589 25.72161916 24.20174813 24.99438942 25.07529674 24.91349106
+ 25.05066438 24.31497472 25.20175829 25.08875221].
+2025-02-23 12:32:26,856 - INFO - The final objective value is 24.773283311539416.
+2025-02-23 12:32:27,128 - INFO - NumExpr defaulting to 8 threads.

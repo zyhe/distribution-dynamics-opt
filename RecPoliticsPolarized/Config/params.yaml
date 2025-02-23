@@ -1,0 +1,14 @@
+population:
+  dim: 20  # dimension of the problem, i.e., size of the preference vector
+  radi: 1  # size of the norm ball
+  size_pop: 500  # number of individuals in the population
+  angle_bd: 90  # lower bound on the relative angle, admissible range: [angle_bd, 180]
+  lambda_p: 0.4  # combination coefficient
+  sigma: 0.5  # adaptation coefficient in dynamics
+  distri_md: "uniform"  # mode of initializing the population distribution; use "uniform", "bimodal", or "load"
+
+algorithm:
+  sz: !!float 5e-3  # step size
+  num_sample: 10  # size of the minibatch
+  num_itr: 20  # number of iterations
+  num_trial: 10  # number of independent trials

@@ -1,0 +1,6 @@
+numpy>=1.26.4
+pandas>=2.2.2
+matplotlib>=3.9.2
+PyYAML>=6.0.2
+scipy>=1.13.1
+cyipopt>=1.5.0

@@ -1,0 +1,13 @@
+algorithm:
+  num_itr: 8000
+  num_sample: 50
+  num_trial: 20
+  sz: 0.005
+population:
+  angle_bd: 90
+  dim: 20
+  distri_md: uniform
+  lambda_p: 0.3
+  radi: 1
+  sigma: 0.5
+  size_pop: 1000

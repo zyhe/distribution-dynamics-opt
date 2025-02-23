@@ -1,0 +1,19 @@
+dynamics:
+  lambda1: 0.2  # combination coefficient in the modified hedge dynamics
+  lambda2: 0.5  # combination coefficient in the modified hedge dynamics
+  epsilon: 0.5  # step size in the hedge dynamics
+
+algorithm:
+  sz: !!float 5e-1  # step size
+  num_itr: 6e3  # total number of iterations
+  sz_gf: !!float 0.1  # step size for the gradient-free method
+  delta: !!float 2  # smoothing parameter
+  num_trial: 5  # number of trials for the gradient-free method
+#  penalty_coeff: 2  # penalty coefficient
+#  penalty_inc_factor: !!float 1  # increasing factor related to the penalty coefficient
+
+problem:
+  dim: 100  # dimension of the problem, i.e., size of the preference vector
+  bd_dec: 5  # upper bound on the decision
+  budget: 250  # budget on the sum of elements of the decision
+  w_entropy: 0.1  # weight corresponding to the entropy term

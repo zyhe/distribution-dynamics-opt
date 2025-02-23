@@ -1,0 +1,15 @@
+algorithm:
+  delta: 1
+  num_itr: 6000.0
+  num_trial: 20
+  sz: 0.5
+  sz_gf: 0.05
+dynamics:
+  epsilon: 0.5
+  lambda1: 0.2
+  lambda2: 0.5
+problem:
+  bd_dec: 5
+  budget: 250
+  dim: 100
+  w_entropy: 0.1
