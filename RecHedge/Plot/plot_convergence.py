@@ -43,6 +43,7 @@ class ConvergencePlotter:
 
         # Collect related data
         self.opt_val = self.conv_dict['opt_val']
+        self.opt_pt = self.conv_dict['opt_pt']
         self.utility_data = self.conv_dict['utility_data']
         self.utility_data_gf = self.conv_dict['utility_data_gf']
         self.dist_opt_pt_data = self.conv_dict['dist_opt_pt_data']
@@ -54,8 +55,8 @@ class ConvergencePlotter:
 
         self.file_name_dict = {
             "Loss": "loss",
-            "Optimality gap": "val_gap",
-            "Distance to $q^*$": "pt_dist",
+            "Relative optimality gap": "val_gap",
+            "Relative distance to $q^*$": "pt_dist",
             r"$W_1(p_k, p_{\text{ss}}(q_k))$": "wass_dist_own",
             r"$W_1(p_k, p_{\text{ss}}(q^{*}))$": "wass_dist_opt"
         }
@@ -67,14 +68,16 @@ class ConvergencePlotter:
 
     def semilog_conv_measure(self):
         """Plot convergence measures in a semilog graph"""
-        self._semilog_metric(self.opt_val-self.utility_data, self.opt_val-self.utility_data_gf,
-                             "Optimality gap", ylim=1e-6)  # gap relative to the optimal utility
-        self._semilog_metric(self.dist_opt_pt_data, self.dist_opt_pt_data_gf,
-                             "Distance to $q^*$", ylim=1e-4)  # gap relative to the optimal utility
+        self._semilog_metric((self.opt_val-self.utility_data)/self.opt_val,
+                             (self.opt_val-self.utility_data_gf)/self.opt_val,
+                             "Relative optimality gap", ylim=1e-10)  # gap relative to the optimal utility
+        self._semilog_metric(self.dist_opt_pt_data/np.linalg.norm(self.opt_pt),
+                             self.dist_opt_pt_data_gf/np.linalg.norm(self.opt_pt),
+                             "Relative distance to $q^*$", ylim=1e-5)  # gap relative to the optimal utility
         # self._semilog_metric(self.dist_wasserstein_ss_own, self.dist_wasserstein_ss_own_gf,
         #                      r"$W_1(p_k, p_{\text{ss}}(q_k))$")  # Wasserstein distance
         self._semilog_metric(self.dist_wasserstein_ss_opt, self.dist_wasserstein_ss_opt_gf,
-                             r"$W_1(p_k, p_{\text{ss}}(q^{*}))$", ylim=1e-5) # Wasserstein distance
+                             r"$W_1(p_k, p_{\text{ss}}(q^{*}))$", ylim=1e-5)  # Wasserstein distance
         # plt.show()
 
     def _semilog_metric(self, data: np.ndarray, data_gf: np.ndarray, ylabel: str, ylim: float = 0):
@@ -87,10 +90,10 @@ class ConvergencePlotter:
         num_itr = data.shape[-1]
         plt.figure()
         plt.semilogy(np.arange(num_itr), data[0], linewidth=3, label='vanilla', color=COLORS_LIST[0])
-        plt.semilogy(np.arange(num_itr), data[1], linewidth=3, label='composite', color=COLORS_LIST[1])
+        plt.semilogy(np.arange(num_itr), data_gf[1], linewidth=2, label='derivative-free', color=COLORS_LIST[2])
         plt.fill_between(np.arange(num_itr), data_gf[0], data_gf[2], alpha=0.3,
                          color=COLORS_LIST[2], edgecolors=None)
-        plt.semilogy(np.arange(num_itr), data_gf[1], linewidth=2, label='derivative-free', color=COLORS_LIST[2])
+        plt.semilogy(np.arange(num_itr), data[1], linewidth=3, label='composite', color=COLORS_LIST[1])
         plt.legend(fontsize=16, loc='upper right')
         plt.xlim([0, 5000])
         if ylim != 0:

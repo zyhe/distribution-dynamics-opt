@@ -26,6 +26,6 @@ We consider affinity maximization of a polarized population equipped with nonlin
 ## How to run
 
 - Call closed_loop_simulation.py. The results will be stored in the folders of Data and Figures.  
-  If no additional parameter is provided, then params.yaml is loaded.
-  Otherwise, params_{i}.yaml is loaded, where i = 1, ...
-- Plot/plot_pop_convergence.py allows adjusting the layout of figures based on the stored data in the folder of Data.
+  If no additional parameter is provided, then params_3.yaml is loaded.
+  Otherwise, params_{i}.yaml is loaded, where i = 0, 1, ...
+- Plot/plot_pop_convergence.py allows adjusting the layout of figures based on the stored data in the folder of Data.  

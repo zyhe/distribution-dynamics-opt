@@ -319,6 +319,7 @@ class ClosedLoopResponse:
         np.savez(
             self.data_dir / "conv_data.npz",
             opt_val=self.user.opt_val,
+            opt_pt=self.user.opt_pt,
             utility_data=self.utility_data,
             utility_data_gf=self.utility_data_gf,
             dist_opt_pt_data=self.dist_opt_pt_data,

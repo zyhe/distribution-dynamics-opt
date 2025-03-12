@@ -21,3 +21,10 @@ We consider decision-making given discrete distributions evolving in the probabi
 `├── closed_loop_response.py`: implement responses & compare algorithms <br>
 `├── params_config.py`: generate different combinations of parameters <br>
 `├── requirements.txt`: necessary packages
+
+## How to run
+
+- Call closed_loop_response.py. The results will be stored in the folders of Data and Figures.  
+  If no additional parameter is provided, then params_3.yaml is loaded.
+  Otherwise, params_{i}.yaml is loaded, where i = 0, 1, ...
+- Plot/plot_pop_convergence.py allows adjusting the layout of figures based on the stored data in the folder of Data.  
